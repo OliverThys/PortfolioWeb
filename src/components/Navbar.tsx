@@ -5,32 +5,31 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'Home', path: '/' },
+    { name: 'Skills', path: '/skills' },
     { name: 'Projects', path: '/projects' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ]
 
   return (
-    <nav className="bg-black/70 backdrop-blur-md border-b border-white/10 fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-white tracking-wide">
-          Oliver<span className="text-blue-500">Thys</span>
-        </Link>
-        <div className="space-x-6 hidden md:flex">
+    <nav className="w-full bg-[#1c1c1e]/80 backdrop-blur-md border-b border-white/10">
+      <div className="max-w-screen-xl mx-auto px-10 py-5 flex justify-center">
+        <ul className="flex list-none">
           {navItems.map(({ name, path }) => (
-            <Link
-              key={name}
-              to={path}
-              className={`text-sm font-medium transition duration-300 ${
-                pathname === path
-                  ? 'text-blue-400'
-                  : 'text-gray-300 hover:text-white'
-              }`}
-            >
-              {name}
-            </Link>
+            <li key={name} className="mx-4">
+              <Link
+                to={path}
+                className={`text-white text-base font-light tracking-wide transition-opacity duration-200 ${
+                  pathname === path
+                    ? 'opacity-100'
+                    : 'opacity-60 hover:opacity-100'
+                }`}
+              >
+                {name}
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </nav>
   )
